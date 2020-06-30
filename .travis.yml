@@ -11,10 +11,22 @@ services:
 jobs:
   include:
     - stage: test
+      arch: amd64
+      script: make coverage
+    - stage: test
+      arch: arm64
       script: make coverage
     - stage: integrate
+      arch: amd64
+      script: make integrate
+    - stage: integrate
+      arch: arm64
       script: make integrate
     - stage: build
+      arch: amd64
+      script: make build
+    - stage: build
+      arch: arm64
       script: make build
 #    - stage: deploy
 #    - stage: release
